@@ -1,10 +1,10 @@
 import torch
 import torch.nn as nn
 from peft import get_peft_model, LoraConfig, TaskType
-from models.biovil_t.encoder import get_encoder_from_type, get_encoder_output_dim
+# from models.biovil_t.encoder import get_encoder_from_type, get_encoder_output_dim
 from models.biovil_t.types import ImageModelOutput
 
-class BreastCancerImageModel(nn.Module):
+class ImageModel(nn.Module):
     def __init__(
         self,
         img_encoder_type: str = "biovil_t_multi_image",
@@ -19,6 +19,7 @@ class BreastCancerImageModel(nn.Module):
         joint_feature_size: int = 128,
         freeze_backbone: bool = False,
     ):
+        from models.biovil_t.encoder import get_encoder_from_type, get_encoder_output_dim
         super().__init__()
         # 1) load the wrapper (single‑ or multi‑image) which has an internal .vit
         self.encoder = get_encoder_from_type(img_encoder_type)
