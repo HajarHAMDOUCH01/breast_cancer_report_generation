@@ -39,7 +39,7 @@ def get_biovil_t_image_encoder(pretrained: bool = True) -> ImageModel:
     model = ImageModel(
         img_encoder_type=ImageEncoderType.BIOVIL_T_MULTI,
         joint_feature_size=JOINT_FEATURE_SIZE,
-        freeze_encoder=False,
+        freeze_backbone=False,
         pretrained_model_path=ckpt_path,
     )
     return model
