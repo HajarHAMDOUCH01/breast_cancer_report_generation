@@ -14,7 +14,7 @@ def get_encoder_from_type(encoder_type: ImageEncoderType):
     """
     if encoder_type == ImageEncoderType.BIOVIL_T_SINGLE:
         return SingleImageEncoder()
-    elif encoder_type == ImageEncoderType.BIOVIL_T_MULTI:
+    elif encoder_type == ImageEncoderType.BIOVIL_T_MULTI:   
         return MultiImageEncoder()
     else:
         raise ValueError(f"Unsupported encoder type: {encoder_type}")
