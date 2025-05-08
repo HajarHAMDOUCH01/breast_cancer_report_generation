@@ -1,7 +1,7 @@
 import tempfile
 from pathlib import Path
 from torchvision.datasets.utils import download_url
-from .image_model import BreastCancerImageModel
+# from .image_model import BreastCancerImageModel
 from .types import ImageEncoderType
 
 JOINT_FEATURE_SIZE = 128
@@ -35,6 +35,7 @@ def get_biovil_t_image_encoder(pretrained: bool = True) -> BreastCancerImageMode
     """
     Instantiate BioViL-T image encoder. Downloads weights if pretrained=True.
     """
+    from .image_model import BreastCancerImageModel
     ckpt_path = download_biovil_t_weights("./pretrained_biovil_t_weights") if pretrained else None
     model = BreastCancerImageModel(
         img_encoder_type=ImageEncoderType.BIOVIL_T_MULTI,
